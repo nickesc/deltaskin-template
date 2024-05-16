@@ -98,7 +98,7 @@ npm run build
 
 ### Step five:
 
-Send your scripts to iCloud:
+Send your skins to iCloud:
 
 ```sh
 npm run send
