@@ -35,17 +35,14 @@ mkdir -p "$BUILD_DIR"  # remake the deleted build folder
 
 echo ""
 
-if [[ $buildReady = true ]]; then  # check if the build was flagged as ready during the backup process
-    if [[ -d "$DELTASKIN_DIR" ]]; then  # check if the deltaskin directory exists
-        for skin in "${DELTASKINS[@]}"; do  # for every skin in the DELTASKINS array
-            if [[ -e "$skin/info.json" ]]; then  # verify that the requested folder is a deltaskin
-                dirSlash="$DELTASKIN_DIR/"
-                system="${skin//${dirSlash}}"  # get the system from the directory name
-                fileName="$BUILD_DIR/$ID_PREFIX.$system.$DELTASKIN_ABR.deltaskin"  # set the .deltaskin file name for this system's skin
-
+if [[ $buildReady = true ]]; then
+    if [[ -d "$DELTASKIN_DIR" ]]; then
+        for system in "${DELTASKINS[@]}"; do
+            if [[ -e "$DELTASKIN_DIR/$system/info.json" ]]; then
+                fileName="$BUILD_DIR/$ID_PREFIX.$system.$DELTASKIN_ABR.deltaskin"
                 echo "Building $system..."
-                \zip -0 -j "$fileName" "$skin/"*  # zip all the files in the skin folder into a .deltaskin file
-                if [ $? -eq 0 ]; then  # check if the zip was successful
+                \zip -0 -j "$fileName" "$DELTASKIN_DIR/$system/"*
+                if [ $? -eq 0 ]; then
                     echo "${system^} built to $fileName"
                 else
                     echo "Failed to build $system deltaskin."
@@ -53,7 +50,7 @@ if [[ $buildReady = true ]]; then  # check if the build was flagged as ready dur
                 fi
                 echo ""
             else
-                echo "Unable to verify that $skin is a is a deltaskin. Please check that the directory contains an info.json file."
+                echo "Unable to verify that $DELTASKIN_DIR/$system is a is a deltaskin. Please check that the directory contains an info.json file."
                 successful=false  # flag as unsuccessful because no info.json file was found in the skin folder
             fi
         done
