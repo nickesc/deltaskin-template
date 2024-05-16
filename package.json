@@ -4,7 +4,7 @@
   "description": "A template and build system for creating skins for the Delta emulator.",
   "main": "scripts/build.sh",
   "scripts": {
-    "test": "scripts/test.sh",
+    "test": "scripts/build.sh && scripts/send.sh",
     "build": "scripts/build.sh",
     "send": "scripts/send.sh"
   },
