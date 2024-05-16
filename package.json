@@ -1,0 +1,32 @@
+{
+  "name": "deltaskin-template",
+  "version": "0.0.1",
+  "description": "A template and build system for creating skins for the Delta emulator.",
+  "main": "scripts/build.sh",
+  "scripts": {
+    "test": "scripts/test.sh",
+    "build": "scripts/build.sh",
+    "send": "scripts/send.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickesc/deltaskin-template.git"
+  },
+  "keywords": [
+    "delta",
+    "ios",
+    "emulation",
+    "skin",
+    "overlay"
+  ],
+  "author": "N. Escobar <nick@nescobar.media> (https://nickesc.github.io/)",
+  "funding": {
+    "type": "ko-fi",
+    "url": "https://ko-fi.com/nickesc"
+  },
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/nickesc/deltaskin-template/issues"
+  },
+  "homepage": "https://github.com/nickesc/deltaskin-template#readme"
+}
