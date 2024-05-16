@@ -24,7 +24,8 @@ The templates themselves are just the Standard Delta skins available by defualt 
 ## How to Use
 
 #### Requirements
-- `npm`: used to execute scripts
+- `bash` (tested `4.0+`): language for build scripts
+- `npm` (tested `10.2.4+`): package manager used to execute scripts
 
 ### Step one:
 
